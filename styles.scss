@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=Montserrat+Alternates:wght@200;300&display=swap');
+
+:root{
+    --main-color: #2b1103;
+    --second-color: #dcc69c;
+}
+
+body{
+    background-color: var(--main-color);
+    color: var(--second-color);
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+.spin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    .lds-hourglass {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-hourglass:after {
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        width: 0;
+        height: 0;
+        margin: 8px;
+        box-sizing: border-box;
+        border: 32px solid var(--second-color);
+        border-color: var(--second-color) transparent var(--second-color) transparent;
+        animation: lds-hourglass 1.2s infinite;
+      }
+      @keyframes lds-hourglass {
+        0% {
+          transform: rotate(0);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        50% {
+          transform: rotate(900deg);
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        100% {
+          transform: rotate(1800deg);
+        }
+      }
+      
+}
+
+
+*::-webkit-scrollbar{
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb{
+  background-color: var(--second-color);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-button{
+  background-color: var(--second-color);
+  width: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

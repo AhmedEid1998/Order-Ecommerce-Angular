@@ -1,0 +1,52 @@
+
+
+footer{
+    margin-top: 20px;
+    h1{
+        cursor: pointer;
+        width: max-content;
+    }
+    .social{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 15px;
+        div{
+            margin-right: 20px;
+            .icon{
+                font-size: 1.5rem;
+                cursor: pointer;
+                background-color: var(--second-color);
+                color: var(--main-color);
+                padding: 5px;
+                border-radius: 7px;
+                transition: 0.3s ease-in-out;
+                &:hover{
+                    transform: translateY(-5px);
+                }
+            }
+        }
+    }
+
+    h2{
+        cursor: context-menu;
+    }
+
+    ul{
+        li{
+            list-style: none;
+            margin-bottom: 5px;
+            cursor: pointer;
+            width: max-content;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                transform: translateX(10px);
+            }
+        }
+    }
+    p{
+        span{
+            letter-spacing: 2px;
+        }
+    }
+}
