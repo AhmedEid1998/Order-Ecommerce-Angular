@@ -1,0 +1,48 @@
+
+
+<div class="nav-bar">
+    <nav>
+        <h1 class="h2" [routerLink]="['/products']">ORDER</h1>
+        <ul class="main-ul">
+            <li [routerLink]="['/products']" routerLinkActive="active">Home</li>
+    
+            <li [routerLink]="['/shop']" routerLinkActive="active">Shop</li>
+    
+            <!-- <li [routerLink]="['/shop']" >Favourite</li> -->
+            <li [routerLink]="['/shop']" class="icon" >
+                <i class="x fa-solid fa-heart"></i>
+                <span>0</span>
+            </li>
+    
+            <li [routerLink]="['/shop']" class="icon">
+                <i class="x fa-solid fa-cart-shopping"></i>
+                <span>0</span>
+            </li>
+    
+        </ul>
+        <div class="menu" >
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+    </nav>
+    <div class="hid">
+        <ul>
+            <li [routerLink]="['/products']" routerLinkActive="active">Home</li>
+    
+            <li [routerLink]="['/shop']" routerLinkActive="active">Shop</li>
+    
+            <!-- <li [routerLink]="['/shop']" >Favourite</li> -->
+            <li [routerLink]="['/shop']" class="icon" >
+                <i class="x fa-solid fa-heart"></i>
+                <span>0</span>
+            </li>
+
+            <li [routerLink]="['/shop']" routerLinkActive="xAct" class="icon">
+                <i class="x fa-solid fa-cart-shopping"></i>
+                <span>0</span>
+            </li>
+    
+        </ul>
+    </div>
+</div>
