@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   }
   id:string = ''
   details:any
+  ratingArr:any [] = []
   isLoading:boolean = false
   index:number = 0
   carouselSugestions:any [] = []
@@ -27,9 +28,17 @@ export class ProductDetailsComponent implements OnInit {
   getProductDetails(){
     this._AuthService.getProductById(this.id).subscribe((response)=>{
       this.details = response
+      console.log(response)
+
+      for (let i = 1; i < this.details.rating; i++) {
+        this.ratingArr.push(i)
+      }
+      console.log(this.ratingArr)
+      
       this.isLoading = true
-      // console.log(this.details)
       // console.log(this.index)
+      // alert(this.details.rating)
+
     })
 
     this._AuthService.getProducts(28).subscribe((res) =>{
@@ -46,6 +55,10 @@ export class ProductDetailsComponent implements OnInit {
 
   carouseldetails(id:number){
     this.details = this.carouselSugestions[id]
+    for (let i = 1; i < this.details.rating; i++) {
+      this.ratingArr = []
+      this.ratingArr.push(i)
+    }
   }
 
   customOptions: OwlOptions = {

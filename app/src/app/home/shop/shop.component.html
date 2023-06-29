@@ -1,16 +1,106 @@
-<p>shop works!</p>
-
-<div class="row">
+<div class="all row">
     <div class="col-lg-3">
-        <div>
-            <select class="form-control " (click)="filterData($event)">
-                <option value="all" selected >All</option>
-                <option  value="{{item}}" *ngFor="let item of categoriesType">{{item}}</option>
-            </select>
+
+        <div class="list">
+
+            <div *ngIf="!isLoading" class="child" (click)="filterData($event)" >All</div>
+            <div class="child" (click)="filterData($event)" *ngFor="let item of categoriesType">{{item}}</div>
+            
+            <div class="spin" *ngIf="isLoading">
+                <div class="lds-hourglass"></div>
+            </div>
         </div>
     </div>
 
     <div class="col-lg-9">
-
+        <div class="spin" *ngIf="isLoading">
+            <div class="lds-hourglass"></div>
+        </div>
+        <div class="row" *ngIf="!isLoading">
+            <p class="h1 cat-tit mb-5">All</p>
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-5  item" *ngFor="let product of dataCategory; let index = index">
+                <div class="text-center position-relative contnt">
+                    <div class="pro-img">
+                        <img [src]="product.thumbnail">
+                    </div>
+                    <h5 class="h6 my-3 fw-bold">{{product.title | slice:0:15}}</h5>
+                    <strong class="d-flex justify-content-between px-2">
+                        <span>{{product.price - (product.price /100* product.discountPercentage) | number : '1.1-2'}} $</span>
+                        <span class="dscount">{{product.price}} $</span>
+                    </strong>
+                    <!-- <button class="details py-1 mt-5 mb-1 mx-auto">Details</button> -->
+                    <button class="py-1 mt-5 mb-3 mx-auto">Add To Cart</button>
+                    <div class="icons">
+                        <div>
+                            <i class="fa-solid fa-heart"></i>
+                            <p>
+                                <span>Favourite</span>
+                            </p>
+                        </div>
+                        <div  (click)="getDetails(index)" >
+                            <i class="fa-solid fa-eye"></i>
+                            <p>
+                                <span>Preview</span>
+                            </p>                    </div>
+                        <div [routerLink]="['/details', product.id]">
+                            <i class="fa-solid fa-link"></i>
+                            <p>
+                                <span>Details</span>
+                            </p>                    </div>
+                    </div>
+                </div>
+                <div class="vote">
+                    <span>{{product.rating}}</span>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+    <div class="mainPopUp">
+        <div class="popUp px-2">
+            <div class="x" (click)="hidePopUp()">
+                <i class="fa-solid fa-x x-icon"></i>
+            </div>
+            <div class="row mt-5">
+
+                <div class="col-lg-6 text-center">
+                    <div>
+                        <div class="mb-2 rounded-5">
+                            <img class="rounded-5 details-img" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-4">
+                    <div class="pro-info">
+                        <h2><strong> <span class="h1 details-title"></span> ( <span class="details-category"></span> - <span class="details-brand"></span> )</strong></h2>
+                        <p class="details-description"></p>
+                        <p><strong>Discount :</strong> <span class="details-discountPercentage"></span> %</p>
+                        <p><strong>Rating :</strong> <span class="details-rating"></span> <i *ngFor="let item of ratingArr" class="fa-solid fa-star mx-2"></i></p>
+                        <p><strong>Price :</strong> <span class="details-priceDis"></span> $ Instead Of 
+                            <span class="pricRed mx-1 details-price"> </span> $
+                        </p>
+                        <p><strong><samp  class="details-stock"></samp> Pieces In Stock</strong></p>
+                        
+                        <div class="clicked d-flex justify-content-between">
+                            <button class="py-1 mt-1 mb-3">Add To Cart</button>
+                            
+                            <div>
+                                <i class="fa-solid fa-heart icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
 </div>

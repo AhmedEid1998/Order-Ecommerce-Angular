@@ -20,5 +20,8 @@ export class AuthService {
   getCategories():Observable<any>{
     return this._HttpClient.get(`https://dummyjson.com/products/categories`)
   }
+  getProductsByCategory(category:string):Observable<any>{
+    return this._HttpClient.get(`https://dummyjson.com/products/category/${category}`)
+  }
 
 }

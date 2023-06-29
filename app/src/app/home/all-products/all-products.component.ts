@@ -17,7 +17,8 @@ export class AllProductsComponent implements OnInit {
   products:any [] = []
   isLoading:boolean = true
   details:any
-
+  ratingArr:any [] = []
+  
  ngOnInit(): void {
    this.trendProducts()
  }
@@ -39,7 +40,10 @@ export class AllProductsComponent implements OnInit {
     $('.details-brand').html(this.details.brand)
     $('.details-description').html(this.details.description)
     $('.details-discountPercentage').html(this.details.discountPercentage)
-    $('.details-rating').html(this.details.rating)
+    // $('.details-rating').html(this.details.rating)
+    for (let i = 1; i < this.details.rating; i++) {
+      this.ratingArr.push(i)
+    }
     $('.details-priceDis').html((this.details.price - (this.details.price /100* this.details.discountPercentage)).toFixed(2))
     $('.details-price').html(this.details.price)
     $('.details-stock').html(this.details.stock)
@@ -62,7 +66,6 @@ export class AllProductsComponent implements OnInit {
           })
         })
   }
-
 
   showPopUp(){
     $('.mainPopUp').css('display', 'flex')

@@ -119,12 +119,7 @@
                         <div class="mb-2 rounded-5">
                             <img class="rounded-5 details-img" >
                         </div>
-                        <!-- <div class="d-flex justify-content-start align-items-center">
-                            <div class="s-img" *ngFor="let image of details.images">
-                                <img [src]="image">
-                                (click)="imageInfo($event)" 
-                            </div>
-                        </div> -->
+
                     </div>
                 </div>
 
@@ -133,7 +128,7 @@
                         <h2><strong> <span class="h1 details-title"></span> ( <span class="details-category"></span> - <span class="details-brand"></span> )</strong></h2>
                         <p class="details-description"></p>
                         <p><strong>Discount :</strong> <span class="details-discountPercentage"></span> %</p>
-                        <p><strong>Rating :</strong> <span class="details-rating"></span> <i class="fa-solid fa-star mx-2"></i></p>
+                        <p><strong>Rating :</strong> <span class="details-rating"></span> <i *ngFor="let item of ratingArr" class="fa-solid fa-star mx-2"></i></p>
                         <p><strong>Price :</strong> <span class="details-priceDis"></span> $ Instead Of 
                             <span class="pricRed mx-1 details-price"> </span> $
                         </p>

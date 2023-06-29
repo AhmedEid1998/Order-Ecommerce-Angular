@@ -28,7 +28,12 @@
                 <h2><strong> <span class="h1">{{details.title}}</span> ( {{details.category}} - {{details.brand}} )</strong></h2>
                 <p>{{details.description}}</p>
                 <p><strong>Discount :</strong> {{details.discountPercentage}} %</p>
-                <p><strong>Rating :</strong> {{details.rating}} <i class="fa-solid fa-star mx-2"></i></p>
+                <!-- <p><strong>Rating :</strong> {{details.rating}} <i class="fa-solid fa-star mx-2"></i></p> -->
+                <p>
+                    <strong>Rating :</strong>
+                    <i *ngFor="let item of ratingArr" 
+                        class="fa-solid fa-star mx-2"></i>
+                </p>
                 <p><strong>Price :</strong> <span> {{details.price - (details.price /100* details.discountPercentage) | number : '1.1-2'}} $</span> Instead Of 
                     <span class="pricRed mx-1"> {{details.price}} $</span>
                 </p>
